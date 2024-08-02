@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+  color:#c00;
+  font-family:sans-serif;
+  font-size:2em;
+  margin-bottom:0;
+}
+
+table {  
+  font-family:sans-serif;
+  th, td {
+    padding:.25em .5em;
+    text-align:left;
+    &:nth-child(2) {
+      text-align:right;
+    }
+  }
+  td {
+    background-color:#eee;    
+  }
+  th {
+    background-color:#009;
+    color:#fff;
+  }
+}
+
+.zigzag {
+  border-collapse:separate;
+  border-spacing:.25em 2em;
+  tbody tr:nth-child(odd) {
+    transform:rotate(2deg);
+  }
+  thead tr,
+  tbody tr:nth-child(even) {
+    transform:rotate(-2deg);
+  }
+}
+    </style>
+</head>
+<body>
+    <center>
+        <h1>TOPIC</h1>
+        <table class="zigzag" border="3px">
+
+            <tr>
+                <th>topic_name</th>
+            </tr>
+            <tbody>
+            {% for i in topic %}
+                <tr>
+                    <td>{{i.topic_name}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    <center>
+        <h1>Webpage</h1>
+        <table class="zigzag" border="3px">
+
+            <tr>
+                <th>topic_name</th>
+                <th>name</th>
+                <th>url</th>
+                <th>email</th>
+            </tr>
+            <tbody>
+            {% for j in webpage %}
+                <tr>
+                    <td>{{j.topic_name}}</td>
+                    <td>{{j.name}}</td>
+                    <td>{{j.url}}</td>
+                    <td>{{j.email}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </center>
+    <center>
+        <h1>AccessRecord</h1>
+        <table class="zigzag" border="3px">
+
+            <tr>
+                <th>name</th>
+                <th>author</th>
+                <th>date</th>
+            </tr>
+            <tbody>
+            {% for p in accessrecord %}
+                <tr>
+                    <td>{{p.name}}</td>
+                    <td>{{p.author}}</td>
+                    <td>{{p.date}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>
